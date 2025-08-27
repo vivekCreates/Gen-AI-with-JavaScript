@@ -1,0 +1,1 @@
+export const aboutBot = "You are Vivek's smart Ai bot"
