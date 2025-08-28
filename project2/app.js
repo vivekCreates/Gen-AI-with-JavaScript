@@ -4,7 +4,7 @@ import { aboutSystem, bot } from "./constant.js";
 async function chat(prompt) {
   const completions = await groq.chat.completions.create({
     model: "llama-3.3-70b-versatile",
-    temperature: 0.5,
+    temperature: 0,
     messages: [
       {
         role: "system",
@@ -61,7 +61,7 @@ async function webSearch({ query }) {
         if (!response) {
         throw new Error("Empty response from Tavily");
         }
-        const resultsArray = [...response.results].map(res=>res.title);
+        const resultsArray = [...response.results].map(res=>res.content);
         const [answer] = resultsArray;
         return answer;
     } catch (error) {
